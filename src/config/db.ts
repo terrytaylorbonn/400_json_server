@@ -1,8 +1,11 @@
 // filepath: src/config/db.ts
 import mongoose from 'mongoose';
+import dotenv from 'dotenv';
+dotenv.config();
+
 const connectDB = async () => {
   try {
-    await mongoose.connect('mongodb+srv://ttbonn:Yourmama539@cluster-250313.toxjl.mongodb.net/jobs-db', {
+    await mongoose.connect(process.env.MONGODB_URI as string, {
     //   useNewUrlParser: true,
     //   useUnifiedTopology: true,
     });
